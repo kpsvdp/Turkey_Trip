@@ -46,7 +46,7 @@ body.day-mode {
       rgba(253, 58, 105, 0.80),
       rgba(79, 172, 254, 0.80)
     ),
-    url("/Users/kpsvdprashanth/Downloads/turkey_trip_dashboard_colorful_daynight/Images/Screenshot.png");; /* 🔁 same file as in your <img> tag */
+    url("Images/Screenshot.png");; /* 🔁 same file as in your <img> tag */
 
   background-size: cover;
   background-position: center bottom;
@@ -63,7 +63,7 @@ body.day-mode .top-bar-main {
       rgba(255, 184, 140, 0.9),
       rgba(143, 211, 244, 0.9)
     ),
-    url("/Users/kpsvdprashanth/Downloads/turkey_trip_dashboard_colorful_daynight/Images/Screenshot.png");
+    url("Images/Screenshot.png");
 }
 
 /* Slight overlay for readability */
