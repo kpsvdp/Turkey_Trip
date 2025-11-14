@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Place 2 • Cappadocia • Turkey Trip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+  
+<body class="night-mode">
+
+  <!-- TOP BAR 1 — Country + Skyline -->
+<div class="top-bar-main">
+  <div class="brand-area">
+    <div class="title-row">
+      <h1 class="brand-title">Cappadocia</h1>
+      <img class="flag-icon" src="https://flagcdn.com/w80/tr.png" alt="Turkey Flag">
+    </div>
+    <p class="brand-tagline">A colourful travel dashboard for your Turkey journey</p>
+  </div>
+</div>
+
+<!-- TOP BAR 2 — Navigation -->
+<nav class="top-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <a href="place1.html" class="active">Places</a>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="photos.html">Photos & Videos</a></li>
+
+    <li class="nav-right-section">
+      <select id="currency-select">
+        <option value="GBP">🇬🇧 GBP (£)</option>
+        <option value="EUR">🇪🇺 EUR (€)</option>
+        <option value="USD">🇺🇸 USD ($)</option>
+        <option value="TRY">🇹🇷 TRY (₺)</option>
+        <option value="INR">🇮🇳 INR (₹)</option>
+      </select>
+
+        <button id="mode-toggle" class="mode-toggle" type="button">
+          <span class="mode-icon">🌙</span>
+          <span class="mode-label">Night</span>
+        </button>
+    </nav>
+    </li>
+  </ul>
+</nav>
+
+  <main class="place-layout">
+    <aside class="place-sidebar">
+      <h2 class="sidebar-title">Places</h2>
+      <ul id="place-sidebar-list" class="place-sidebar-list">
+        <!-- Filled by JS -->
+      </ul>
+    </aside>
+
+    <section id="place-detail" class="place-detail">
+      <!-- Filled by JS -->
+    </section>
+  </main>
+
+  
+
+  <footer class="page-footer">
+    <p>Cappadocia • Place 2 dashboard. Edit costs and text in <strong>js/data.js</strong>.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    window.PLACE_ID = 2;
+  </script>
+  <script src="js/place-page.js"></script>
+
+<script>
+    // Simple day/night toggle for HOME dashboard only
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    function setMode(mode) {
+      if (mode === 'day') {
+        body.classList.remove('night-mode');
+        body.classList.add('day-mode');
+        modeToggle.querySelector('.mode-icon').textContent = '☀️';
+        modeToggle.querySelector('.mode-label').textContent = '';
+      } else {
+        body.classList.remove('day-mode');
+        body.classList.add('night-mode');
+        modeToggle.querySelector('.mode-icon').textContent = '🌙';
+        modeToggle.querySelector('.mode-label').textContent = '';
+      }
+      localStorage.setItem('turkeyMode', mode);
+    }
+
+    const savedMode = localStorage.getItem('turkeyMode') || 'night';
+    setMode(savedMode);
+
+    modeToggle.addEventListener('click', () => {
+      const current = body.classList.contains('day-mode') ? 'day' : 'night';
+      setMode(current === 'day' ? 'night' : 'day');
+    });
+  </script>
+
+
+</body>
+</html>
